@@ -105,3 +105,34 @@ async function iniciarSistema() {
  
   console.log(`\nCandidato  : ${candidato.nome}`);
   console.log(`Habilidades: ${candidato.habilidades.join(", ") || "Nenhuma"}`);
+   
+  const resultados = vagasCarregadas.map(vaga => {
+    contar();
+ 
+    const encontradas = vaga.requisitos.filter(req => candidato.habilidades.includes(req));
+    const faltantes = vaga.requisitos.filter(req => !candidato.habilidades.includes(req));
+    const percentual = Math.round((encontradas.length / vaga.requisitos.length) * 100);
+ 
+    let classificacao;
+    if (percentual >= 80) classificacao = "Alta compatibilidade";
+    else if (percentual >= 50) classificacao = "Media compatibilidade";
+    else classificacao = "Baixa compatibilidade";
+ 
+    return { vaga, percentual, classificacao, encontradas, faltantes };
+  });
+ 
+  console.log("\n=== Analise por Vaga ===");
+ 
+  resultados.forEach(({ vaga, percentual, classificacao, encontradas, faltantes }) => {
+    console.log(`\nEmpresa    : ${vaga.empresa}`);
+    console.log(`Cargo      : ${vaga.cargo}`);
+    console.log(vaga.exibirNivel());
+    console.log(vaga.exibirResumo());
+    console.log(`Compat.    : ${percentual}% - ${classificacao}`);
+    console.log(`Encontradas: ${encontradas.join(", ") || "Nenhuma"}`);
+    console.log(`Faltantes  : ${faltantes.join(", ") || "Nenhuma"}`);
+    console.log("-".repeat(45));
+  });
+ 
+  const melhor = resultados.reduce((a, b) => a.percentual >= b.percentual ? a : b);
+ 
