@@ -10,7 +10,7 @@ O sistema mostra:
 - habilidades faltantes;
 - vaga mais compatível;
 - recomendações para estudo;
-- O link para o Kambam é: https://trello.com/b/ZJ8bpU4f/skillmatch-js-simulador-de-compatibilidade-com-vaga-front-end-junior
+- O link para o Quadro Kambam é: https://trello.com/b/ZJ8bpU4f/skillmatch-js-simulador-de-compatibilidade-com-vaga-front-end-junior
 - O link para o Vídeo explicativo é: 
 
 ## Objetivo
