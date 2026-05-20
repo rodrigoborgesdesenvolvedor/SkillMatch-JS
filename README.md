@@ -5,8 +5,8 @@
 
 O SkillMatch é Sistema simples, que compara habilidades de candidatos em Java Script para vagas de programador Front-End Júnior.
 O sistema mostra:
--percentual de compatibilidade;
-habilidades encontradas;
+- percentual de compatibilidade;
+- habilidades encontradas;
 - habilidades faltantes;
 - vaga mais compatível;
 - recomendações para estudo;
@@ -34,14 +34,13 @@ Kanban.
 
 ## Como executar
 
-Este projeto não precisa de Node.js.
-Você pode executar de uma destas formas:
-1. Abrir o navegador Google Chrome.
-2. Pressionar F12 ou Ctrl + Shift + J.
-3. Abrir a aba Console.
-4. Copiar o código do arquivo skillmatch.js.
-5. Colar no console.
-6. Pressionar Enter.
+Para utilizar o sistema skillmatch é necessário node.js e um sistema como vscode.
+também é necessário o uso do pacote prompt-sync, utilizado para dar mais dinamismo e praticidade na avaliação em sequência de vários candidatos.
+1- Abra o vscode ou similar;
+2- Certifique que tenha o node.js. instruções de download nesse link: https://nodejs.org/en/download
+3- Certifique que tenha instalado o pacote prompt-sync; Caso não tenha pode instalá-lo seguindo o passo a passo de acordo com esse link: https://www.npmjs.com/package/prompt-sync?activeTab=readme;
+4- copie o código e cole em um arquivo.js
+5- Execute no terminal do vscode ou similar.
 
 
 ## Estrutura do projeto
