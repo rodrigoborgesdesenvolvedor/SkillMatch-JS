@@ -10,7 +10,8 @@ O sistema mostra:
 - habilidades faltantes;
 - vaga mais compatível;
 - recomendações para estudo;
-
+- O link para o Kambam é: https://trello.com/b/ZJ8bpU4f/skillmatch-js-simulador-de-compatibilidade-com-vaga-front-end-junior
+- O link para o Vídeo explicativo é: 
 
 ## Objetivo
 Praticar os conceitos aprendidos no módulo 1:
@@ -31,7 +32,6 @@ Praticar os conceitos aprendidos no módulo 1:
 -GitHub;
 Kanban.
 
-
 ## Como executar
 
 Para utilizar o sistema skillmatch é necessário node.js e um sistema como vscode.
@@ -42,6 +42,13 @@ também é necessário o uso do pacote prompt-sync, utilizado para dar mais dina
 4- copie o código e cole em um arquivo.js
 5- Execute no terminal do vscode ou similar.
 
+## Como a internet Funciona
+
+Quando você acessa um site, seu navegador (cliente) envia uma requisição a um servidor pedindo dados. O servidor processa e devolve a resposta — geralmente em JSON, HTML ou outro formato. Essa comunicação viaja pela internet usando protocolos como HTTP/HTTPS. Na prática, há uma pequena espera até o servidor responder, por isso requisições reais são assíncronas. O cliente então usa os dados recebidos para montar a interface ou continuar o fluxo.
+
+## Arquitetura Cliente Servidor
+
+No projeto, as linhas 51–55 simulam exatamente esse comportamento: buscarVagas() retorna uma Promise com setTimeout de 1 segundo imitando o tempo de resposta de um servidor real. Na linha 61, o await pausa a execução até os "dados chegarem", assim como aconteceria numa chamada real a uma API.
 
 ## Estrutura do projeto
 Qadro_Kamban.txt
