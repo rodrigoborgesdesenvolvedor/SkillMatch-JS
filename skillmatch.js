@@ -30,7 +30,7 @@ class VagaFrontEnd extends Vaga {
     return `Nivel: ${this.nivel}`;
   }
 }
-
+ 
 const vagas = [
   new VagaFrontEnd(1, "TechStart",    "Dev Front-End Junior",  ["JavaScript", "GitHub", "Logica de Programacao"],  2800, "Remoto",     "Junior"),
   new VagaFrontEnd(2, "CodeLab",      "Estagio Front-End",     ["JavaScript", "Kanban", "GitHub"],                 1800, "Hibrido",    "Estagio"),
@@ -60,8 +60,8 @@ async function iniciarSistema() {
   console.log("[Servidor] Carregando vagas...");
   const vagasCarregadas = await buscarVagas();
   console.log("Vagas carregadas!");
-  vagasCarregadas.forEach(v => console.log(`  - ${v.empresa}: ${v.cargo}`)); 
-   
+  vagasCarregadas.forEach(v => console.log(`  - ${v.empresa}: ${v.cargo}`));
+ 
   const habilidades = vagasCarregadas.reduce((lista, vaga) => {
     vaga.requisitos.forEach(req => {
       if (!lista.includes(req)) lista.push(req);
@@ -105,7 +105,7 @@ async function iniciarSistema() {
  
   console.log(`\nCandidato  : ${candidato.nome}`);
   console.log(`Habilidades: ${candidato.habilidades.join(", ") || "Nenhuma"}`);
-   
+ 
   const resultados = vagasCarregadas.map(vaga => {
     contar();
  
@@ -136,3 +136,47 @@ async function iniciarSistema() {
  
   const melhor = resultados.reduce((a, b) => a.percentual >= b.percentual ? a : b);
  
+  console.log("\n=== Vaga Mais Compativel ===");
+  console.log(`${melhor.vaga.empresa} - ${melhor.vaga.cargo}: ${melhor.percentual}%`);
+ 
+  const perfeitas = vagasCarregadas.filter(vaga =>
+    vaga.requisitos.every(req => candidato.habilidades.includes(req))
+  );
+ 
+  if (perfeitas.length > 0) {
+    console.log(`O(A) candidato(a) atende 100% dos requisitos de: ${perfeitas.map(v => v.empresa).join(", ")}`);
+  } else {
+    console.log("O(A) candidato(a) ainda nao atende 100% dos requisitos de nenhuma vaga.");
+  }
+ 
+  const faltamEstudar = resultados.reduce((lista, r) => {
+    r.faltantes.forEach(h => { if (!lista.includes(h)) lista.push(h); });
+    return lista;
+  }, []);
+ 
+  console.log("\n=== Recomendacao de Estudo ===");
+  if (faltamEstudar.length === 0) {
+    console.log("Parabens! o candidato possui todas as habilidades exigidas.");
+  } else {
+    console.log(`Habilidades: ${faltamEstudar.join(", ")}`);
+  }
+ 
+  function exibirMensagemFinal(nome) {
+    if (faltamEstudar.length === 0) {
+      console.log(`Sem recomendações de Estudo.\n`);
+    } else {
+      console.log(`Recomende a revisão das habilidades acima ao(a) candidato(a) ${nome}. Sujira a implementação de um plano de estudos.\n`);
+    }
+  }
+ 
+  function finalizarAnalise(nomeCandidato, callback) {
+    console.log("\nAnalise finalizada.");
+    callback(nomeCandidato);
+  }
+ 
+  finalizarAnalise(candidato.nome, exibirMensagemFinal);
+ 
+  console.log(`Total de vagas analisadas: ${contar() - 1}`);
+}
+ 
+iniciarSistema(); 
