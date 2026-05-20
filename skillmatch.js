@@ -135,7 +135,11 @@ async function iniciarSistema() {
   });
  
   const melhor = resultados.reduce((a, b) => a.percentual >= b.percentual ? a : b);
+<<<<<<< HEAD
  
+=======
+
+>>>>>>> f7209c482f0e3773008fd4484e61f7b5b68d36ac
   console.log("\n=== Vaga Mais Compativel ===");
   console.log(`${melhor.vaga.empresa} - ${melhor.vaga.cargo}: ${melhor.percentual}%`);
  
@@ -179,4 +183,8 @@ async function iniciarSistema() {
   console.log(`Total de vagas analisadas: ${contar() - 1}`);
 }
  
+<<<<<<< HEAD
 iniciarSistema(); 
+=======
+iniciarSistema();  
+>>>>>>> f7209c482f0e3773008fd4484e61f7b5b68d36ac
