@@ -1,3 +1,5 @@
 node_modules/
 .jason
 .gitignore
+package-lock.json
+package.json
