@@ -61,3 +61,47 @@ async function iniciarSistema() {
   const vagasCarregadas = await buscarVagas();
   console.log("Vagas carregadas!");
   vagasCarregadas.forEach(v => console.log(`  - ${v.empresa}: ${v.cargo}`)); 
+   
+  const habilidades = vagasCarregadas.reduce((lista, vaga) => {
+    vaga.requisitos.forEach(req => {
+      if (!lista.includes(req)) lista.push(req);
+    });
+    return lista;
+  }, []);
+ 
+  const nome = prompt("\nDigite o nome do candidato: ").trim();
+ 
+  console.log("\nHabilidades mencionadas no currículo:");
+  habilidades.forEach((h, i) => console.log(`  ${i + 1}. ${h}`));
+  console.log("  0. Sair");
+ 
+  let selecionadas;
+ 
+  while (true) {
+    const entrada = prompt("\nDigite os numeros das habilidades (ex: 1,3,5): ").trim();
+ 
+    if (entrada === "0") {
+      console.log("Encerrando o sistema.");
+      process.exit(0);
+    }
+ 
+    const numeros = entrada.split(",").map(n => parseInt(n.trim())).filter(n => !isNaN(n));
+    const invalidos = numeros.filter(n => n < 1 || n > habilidades.length);
+ 
+    if (invalidos.length > 0) {
+      console.log(`Selecione apenas de 1 a ${habilidades.length}`);
+      continue;
+    }
+ 
+    selecionadas = numeros.map(n => habilidades[n - 1]);
+    break;
+  }
+ 
+  const candidato = {
+    nome: nome || "Candidato",
+    area: "Front-End",
+    habilidades: selecionadas,
+  };
+ 
+  console.log(`\nCandidato  : ${candidato.nome}`);
+  console.log(`Habilidades: ${candidato.habilidades.join(", ") || "Nenhuma"}`);
