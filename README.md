@@ -11,7 +11,7 @@ O sistema mostra:
 - vaga mais compatível;
 - recomendações para estudo;
 - O link para o Quadro Kambam é: https://trello.com/b/ZJ8bpU4f/skillmatch-js-simulador-de-compatibilidade-com-vaga-front-end-junior
-- O link para o Vídeo explicativo é: 
+- O link para o Vídeo explicativo é: https://youtu.be/5x_d6YH3lbg
 
 ## Objetivo
 Praticar os conceitos aprendidos no módulo 1:
@@ -51,10 +51,12 @@ Quando você acessa um site, seu navegador (cliente) envia uma requisição a um
 No projeto, as linhas 51–55 simulam exatamente esse comportamento: buscarVagas() retorna uma Promise com setTimeout de 1 segundo imitando o tempo de resposta de um servidor real. Na linha 61, o await pausa a execução até os "dados chegarem", assim como aconteceria numa chamada real a uma API.
 
 ## Estrutura do projeto
-Qadro_Kamban.txt
+
 SkillMatch-JS-Simulador-de-Compatibilidade-com-Vaga-Front-End-J-nior/
 skillmatch.js
 README.md
+Qadro_Kamban.txt
+Video.txt
 
 
 =======
