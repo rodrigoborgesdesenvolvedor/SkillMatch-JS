@@ -59,7 +59,3 @@ Qadro_Kamban.txt
 Video.txt
 
 
-=======
-# SkillMatch-JS-Simulador-de-Compatibilidade-com-Vaga-Front-End-Júnior
-Sistema que compara habilidades de candidatos em JS para uma vaga de programador Front-End Júnior.
->>>>>>> d75f7e2db55f88f2f621d78700555042848623e6
