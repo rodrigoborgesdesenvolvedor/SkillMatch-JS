@@ -15,7 +15,7 @@ O sistema mostra:
 ## Objetivo
 Praticar os conceitos aprendidos no módulo 1:
 
--lógica de programação;
+- lógica de programação;
 - tipos de dados;
 - condicionais;
 - operadores;
@@ -24,12 +24,12 @@ Praticar os conceitos aprendidos no módulo 1:
 - arrow functions;
 - arrays;
 - métodos de array;
--objetos;
+- objetos;
 - classes;
 - herança;
 - this; this
--GitHub;
-Kanban.
+- GitHub;
+- Kanban.
 
 ## Como executar
 
