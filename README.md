@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # SkillMatch-JS
 
 ## Sobre o Projeto
@@ -52,10 +51,6 @@ No projeto, as linhas 51–55 simulam exatamente esse comportamento: buscarVagas
 
 ## Estrutura do projeto
 
-SkillMatch-JS-Simulador-de-Compatibilidade-com-Vaga-Front-End-J-nior/
+SkillMatch-JS/
 skillmatch.js
 README.md
-Qadro_Kamban.txt
-Video.txt
-
-
